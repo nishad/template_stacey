@@ -1,0 +1,3 @@
+{% for child in page.root %}<li class="nav--slide-out__child  site-nav__{{ child.slug }}">
+	<a href="{{ child.url }}" class="{% if child.is_current == true %}  current{% endif %}">{{ child.title }}</a>
+</li>{% endfor %}

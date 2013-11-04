@@ -1,0 +1,16 @@
+{# read more button #}
+{% macro read_more_button(url, link_text) %}
+    <p class="read-more--button">
+		<a href="{{ url|default('/') }}" class="button--dark">{{ link_text }}</a>
+	</p>
+{% endmacro %}
+
+{# hr small #}
+{% macro hr_small() %}
+    <hr class="hr--small">
+{% endmacro %}
+
+{# hr stars #}
+{% macro hr_stars() %}
+    <hr class="hr--stars">
+{% endmacro %}

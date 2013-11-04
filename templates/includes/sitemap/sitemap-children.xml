@@ -1,0 +1,4 @@
+{% for child in page.children %}
+  {% include 'includes/sitemap/sitemap-url.xml' with { 'page': child } %}
+  {% include 'includes/sitemap/sitemap-children.xml' with { 'page': child } %}
+{% endfor %}

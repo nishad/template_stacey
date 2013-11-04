@@ -1,0 +1,65 @@
+/**
+ *    ----------------------------------------
+ *    I  M  A  G  E  S
+ *    _images.scss
+ * 	  all on site images
+ *    ----------------------------------------
+ *
+ *    S I N G L E  I M A G E
+ *    P L A C E H O L D E R S
+ *
+ */
+
+
+
+
+
+/*    S I N G L E  I M A G E
+---------------------------------------- */
+
+figure {
+	line-height: 0;
+}
+
+%cap-height {
+	max-height: 36em;
+}
+
+.media {
+	position: relative;
+	line-height: 1;
+	@extend %margin-bottom-double;
+	@extend %cap-height;
+	-webkit-backface-visibility: hidden;
+}
+
+	.media__image {
+		display: block;
+		width: auto;
+		@extend %center;
+		@extend %cap-height;
+	}
+
+	.media__image--full {
+		@include span(12);
+	}
+
+	.media__image--greyscale {
+		@include filter(grayscale(100%));
+	}
+
+	.image--loaded {
+		@include animation(fadeIn);
+	}
+
+
+
+
+
+/*    P L A C E H O L D E R S
+---------------------------------------- */
+
+// hide loading images for no-js
+.no-js .js--unveil {
+	display: none;
+}

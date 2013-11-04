@@ -1,0 +1,44 @@
+/**
+ *    ----------------------------------------
+ *    A  R  T  I  C  L  E
+ *    _article.scss
+ * 	  article building blocks
+ *    ----------------------------------------
+ */
+
+
+
+
+
+.article-header,
+.article-content,
+.article-media {
+	@extend %margin-bottom-double;
+}
+
+	.article-header--small,
+	.article-content--small,
+	.article-media--small {
+		@extend %margin-bottom-default;
+	}
+
+.article-header,
+.article-content {
+	max-width: 36em;
+	@extend %center;
+}
+
+.article-content {
+	// bold links inside article content
+	a {
+		@extend %font-body-bold;
+		font-weight: bold;
+	}
+}
+
+// increase base font-size on single article
+.article--full {
+	@include mq(min-lap) {
+		font-size: $zeta-size;
+	}
+}

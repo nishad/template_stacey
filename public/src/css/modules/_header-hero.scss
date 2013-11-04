@@ -1,0 +1,146 @@
+/**
+ *    ----------------------------------------
+ *    H  E  A  D  E  R    H  E  R  O
+ *    _header-hero.scss
+ * 	  full bleed header, often text over an image
+ *    ----------------------------------------
+ *
+ *    L O A D I N G  O V E R L A Y
+ *    H E R O  C O N T E N T
+ *
+ */
+
+
+
+
+
+/*    L O A D I N G  O V E R L A Y
+---------------------------------------- */
+
+.js .loading-overlay {
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	background-image: url('/public/src/img/placeholders/loading.jpg');
+	background-size: 4em;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+	// because the overlay relies on js, remove if no-js
+	.no-js .loading-overlay,
+	.state--window-loaded .loading-overlay {
+		display: none;
+	}
+
+
+
+
+
+/*    H E R O  C O N T E N T
+---------------------------------------- */
+
+.header--hero {
+	position: relative;
+	z-index: 300;
+	width: 100%;
+	overflow: hidden;
+	@extend %margin-bottom-none;
+	@include transition(transform $animation-cubic);
+	// move hero down by the height of the header when no-js
+	.no-js & {
+		padding-top: 5em;
+	}
+	// fix the hero on non handheld browsers
+	.browser--desktop & {
+		position: fixed;
+	}
+}
+
+	.header--hero--dark,
+	.header--hero--light {
+		.header--hero__overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.4;
+		}
+	}
+
+	// hero color dark (default)
+	.header--hero--dark {
+		color: #111;
+		.meta {
+			color: #111;
+		}
+		.header--hero__overlay {
+			background: #fff;
+		}
+	}
+
+	// hero color light (overide)
+	.header--hero--light {
+		color: #fff;
+		.meta {
+			color: #fff;
+		}
+		.header--hero__overlay {
+			background: #111;
+		}
+	}
+
+	.header--hero__inner {
+		position: relative;
+		z-index: 200;
+		padding: 20% 7%;
+		@extend %text-center;
+		@include transition(transform $animation-cubic);
+	}
+
+		.header--hero__title {
+			font-size: $kilo-size;
+			@extend %text-upper;
+			@extend %margin-bottom-none;
+			@include mq(min-palm) {
+				font-size: $mega-size;
+			}
+			@include mq(min-lap) {
+				font-size: $giga-size;
+			}
+			@include mq(min-desk) {
+				font-size: $giga-size*1.2;
+			}
+		}
+
+		.header--hero__sub-title {
+			@extend %text-upper;
+		}
+
+	.header--hero__wrap {
+		@include background-size(cover);
+		background-repeat: none;
+		background-position: center;
+	}
+
+	// start of fade in animation
+	.js .header--hero__wrap {
+		opacity: 0;
+		@include transition(opacity $animation-cubic);
+	}
+
+	// offset for animation
+	.js .header--hero__inner {
+		@include sk_translate(0, $kilo-size, 0);
+	}
+
+	// when window loads, fade in and move up hero content
+	.state--window-loaded .header--hero__wrap {
+		opacity: 1;
+		.header--hero__inner {
+			@include sk_translate(0, 0, 0);
+		}
+	}

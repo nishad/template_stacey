@@ -1,0 +1,9 @@
+{# image slider (auto creates slider if more than one image) #}
+<ul class="slider">
+	{% for image in page.images %}
+	{# each image #}
+	<li class="slide  slide--image{% if loop.index == 1 %}  active{% endif %}">
+		<img src="{{ image.time_string }}" class="slide__image" data-width="{{ image.width }}" data-height="{{ image.height }}" width="{{ image.width }}" height="{{ image.height }}">
+	</li>
+	{% endfor %}
+</ul>

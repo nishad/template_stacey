@@ -1,0 +1,140 @@
+{% spaceless %}
+
+{#
+ #    ----------------------------------------
+ #    D  E  F  A  U  L  T    L  A  Y  O  U  T
+ #    default.html
+ #    fallback page that a lot of templates extend
+ #    ----------------------------------------
+ #}
+
+
+{# set environment variable #}
+{% if page.env == 'dist' %}
+    {% set distribution = true %}
+{% endif %}
+
+{# import macros #}
+{% import 'includes/common-elements.html' as ce %}
+
+
+{#    B E G I N  M A R K U P
+---------------------------------------- #}
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+
+{#    H E A D
+---------------------------------------- #}
+<head>
+    <meta charset="utf-8">
+    <!-- Prefetch DNS -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <!-- Styles -->
+    {% for stylesheet in page.assets_css %}
+        <link rel="stylesheet" href="{% if distribution %}{{ stylesheet|replace({'.css': '.min.css'}).time_string }}{% else %}{{ stylesheet.time_string }}{% endif %}">
+    {% endfor %}
+    {% if page.custom_css %}
+    <style type="text/css">
+        {{ page.custom_css }}
+    </style>
+    {% endif %}
+    {% if page.has_code %}
+        <link rel="stylesheet" href="/public/src/js/libs/google-code-prettify/prettify.css">
+    {% endif %}
+    <!-- Meta Data -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{{ page.title }} - {{ page.name }}</title>
+    <meta name="description" content="{{ page.page_description }}">
+    <meta name="keywords" content="{{ page.default_keywords }}, {{ page.slug }}{% for tag in page.tags %}, {{ tag }}{% endfor %}">
+    <meta name="author" content="{{ page.name }}">
+    <!-- Social data -->
+    {% include 'includes/modules/meta-social.html' %}
+    <!-- Scripts -->
+    <script src="/public/src/js/libs/modernizr.min.js"></script>
+</head>
+
+
+{#    B O D Y
+---------------------------------------- #}
+<body class="page--{{ page.body_class }}">
+
+    {# header #}
+    <header class="page-head" id="main-head">
+        <div class="island  island--constrain">
+            <p class="nav  nav__brand">
+                <a href="{{ page.root_path }}">{{ page.name }}</a>
+            </p>
+            <ul class="nav  nav--primary">
+                {% include 'includes/navigation/nav-primary.html' %}
+            </ul>
+        </div>
+    </header>
+
+    {# hero header #}
+    {% if page.hero_image %}
+        {% include 'includes/modules/header-hero.html' %}
+    {% endif %}
+
+    <div class="page-wrap">
+
+            {# page content #}
+            <div class="island  page-content  page-content--{{ page.body_class }}">
+                {% block content %}{{ page.content }}{% endblock content %}
+            </div>
+
+            {# page footer #}
+            {% if page.body_class != '404' %}
+            <div class="island  page-foot">
+                <section class="container">
+                    <p class="page-foot__copyright">&copy; Copyright {{ page.name }} {{ "now"|date("Y") }}</p>
+                </section>
+            </div>
+            {% endif %}
+
+    </div> {# page-wrap #}
+
+
+{#    S C R I P T S
+---------------------------------------- #}
+<script src="/public/src/js/libs/jquery.min.js"></script>
+{% for script in page.assets_js %}
+    <script src="{% if distribution %}{{ script|replace({'.js': '.min.js'}).time_string }}{% else %}{{ script.time_string }}{% endif %}"></script>
+{% endfor %}
+
+{% if page.has_code %}
+    <script src="/public/src/js/libs/google-code-prettify/prettify.js"></script>
+    <script>
+        function styleCode() {
+            if (typeof disableStyleCode != 'undefined') { return; }
+            var a = false;
+            $('pre code').each(function() {
+                if (!$(this).hasClass('prettyprint')) {
+                    $(this).addClass('prettyprint');
+                    a = true;
+                }
+            });
+            if (a) { prettyPrint(); }
+        }
+        $(function() {styleCode();});
+    </script>
+{% endif %}
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ page.analytics }}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
+{% endspaceless %}

@@ -1,0 +1,122 @@
+/**
+ *    ----------------------------------------
+ * 	  C  O  M  M  O  N    C  L  A  S  S  E  S
+ *    _common-classes.scss
+ * 	  re-usable helper classes
+ *    ----------------------------------------
+ *
+ *    C L E A R F I X
+ *    I M A G E  R E P L A C E M E N T
+ *    M A X  W I D T H S
+ *    C E N T E R
+ *    M A R G I N  H E L P E R S
+ *    T Y P E  H E L P E R S
+ *
+ */
+
+
+
+
+
+/*    C L E A R F I X
+---------------------------------------- */
+
+
+%cf { zoom: 1; }
+%cf:before, %cf:after {
+	content: " ";
+	display: table;
+}
+%cf:after { clear: both; }
+
+// clearfix class
+.cf {
+	@extend %cf;
+}
+
+
+
+
+
+/*    I M A G E  R E P L A C E M E N T
+---------------------------------------- */
+
+%ir {
+	font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+
+
+
+
+/*    M A X  W I D T H S
+---------------------------------------- */
+
+%max-width-default {
+	max-width: $default-max-width;
+}
+
+%max-width-none {
+	max-width: none;
+}
+
+
+
+
+
+/*    C E N T E R
+---------------------------------------- */
+
+%center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+
+/*    M A R G I N  H E L P E R S
+---------------------------------------- */
+
+%margin-bottom-half {
+	margin-bottom: $spacing-unit-half;
+}
+
+%margin-bottom-medium {
+	margin-bottom: $spacing-unit-medium;
+}
+
+%margin-bottom-double {
+	margin-bottom: $spacing-unit-double;
+}
+
+%margin-bottom-default {
+	margin-bottom: $spacing-unit-default;
+}
+
+%margin-bottom-none {
+	margin-bottom: 0;
+}
+
+.margin-bottom-none {
+	@extend %margin-bottom-none;
+}
+
+
+
+
+
+/*    T Y P E  H E L P E R S
+---------------------------------------- */
+
+%text-upper 		{ text-transform: uppercase; }
+%text-lower 		{ text-transform: lowercase; }
+
+%text-center 		{ text-align: center; }
+%text-right 		{ text-align: right; }
+
+%text-big-spaced 	{ letter-spacing: .4em; }
+%text-small-spaced 	{ letter-spacing: .2em; }

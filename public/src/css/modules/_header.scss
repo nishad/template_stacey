@@ -1,0 +1,44 @@
+/**
+ *    ----------------------------------------
+ *    H  E  A  D  E  R  S
+ *    _header.scss
+ * 	  on site `<header>` elements
+ *    ----------------------------------------
+ *
+ *    P A G E  H E A D
+ *    P A G E  L E A D
+ *
+ */
+
+
+
+
+
+/*    P A G E  H E A D
+---------------------------------------- */
+
+.page-head {
+	position: relative;
+	width: 100%;
+	background: #fff;
+	@extend %font-headline-bold;
+	padding: {
+		top: $spacing-unit-default;
+		bottom: $spacing-unit-default;
+	}
+}
+
+
+
+
+
+/*    P A G E  L E A D
+---------------------------------------- */
+
+.page-lead {
+	@extend %text-center;
+}
+
+	.page-lead__sub-title {
+		@extend %text-upper;
+	}

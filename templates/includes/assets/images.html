@@ -1,0 +1,37 @@
+{# reverse the order of images if specified #}
+{% if page.reverse == "true" %}
+	{% set imagelist = page.images|reverse %}
+{% else %}
+	{% set imagelist = page.images %}
+{% endif %}
+
+{# show exif data on single posts or if specified #}
+{% if page.body_class == "single-post" or page.exif == true %}
+	{% set exifclass = true %}
+{% endif %}
+
+
+{# begin image loop #}
+{% for image in imagelist %}
+
+	{# filler before #}
+	{% if image.filler == 'before' or image.filler2 == 'before' %}
+		{% include 'includes/assets/image-markup-filler.html' %}
+	{% endif %}
+
+	{# actual image #}
+	{% include 'includes/assets/image-markup.html' %}
+
+	{# filler after #}
+	{% if image.filler == 'after' or image.filler2 == 'after' %}
+		{% include 'includes/assets/image-markup-filler.html' %}
+	{% endif %}
+
+	{# content after the image #}
+	{% if image.content %}
+		<div class="article-content  article-content--mid-flow">
+			{{ image.content }}
+		</div>
+	{% endif %}
+
+{% endfor %}

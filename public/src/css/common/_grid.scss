@@ -1,0 +1,61 @@
+/**
+ *    ----------------------------------------
+ *    G  R  I  D
+ *    _grid.scss
+ * 	  grid helpers
+ *    ----------------------------------------
+ *
+ *    V A R S
+ *    C O M M O N  C L A S S
+ *    S P A N  M I X I N
+ *    C L A S S  S E T U P
+ *
+ */
+
+
+
+
+
+/*    V A R S
+---------------------------------------- */
+$columns: 12;
+$gutter: 2%;
+$grid-class: grid-;
+
+
+/*    C O M M O N  C L A S S
+---------------------------------------- */
+%span-cols {
+	display: inline-block;
+	margin: {
+		let: $gutter/2;
+		right: $gutter/2;
+	}
+	vertical-align: top;
+}
+
+
+/*    S P A N  M I X I N
+---------------------------------------- */
+@mixin span($column) {
+	$spans: percentage($column/$columns);
+	// if a gutter is set
+	@if $gutter > 0 {
+		// take the gutter away from the span width
+		width: $spans - $gutter;
+	} @else {
+		// use the full span with no gutter
+		width: $spans;
+	}
+}
+
+
+/*    C L A S S  S E T U P
+---------------------------------------- */
+@for $column from 1 through $columns {
+	// standard classes for use in markup
+	.#{$grid-class}#{$column} {
+		@extend %span-cols;
+		@include span($column);
+	}
+}

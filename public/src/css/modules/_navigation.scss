@@ -1,0 +1,87 @@
+/**
+ *    ----------------------------------------
+ *    N  A  V  I  G  A  T  I  O  N
+ *    _navigation.scss
+ * 	  styles for all navigation elements
+ *    ----------------------------------------
+ *
+ *    D E F A U L T  N A V
+ *    P R I M A R Y
+ *    S H A R E
+ *
+ */
+
+
+
+
+
+/*    D E F A U L T  N A V
+---------------------------------------- */
+
+.nav {
+	list-style: none;
+	display: block;
+	font-size: $micro-size;
+	@extend %cf;
+	@extend %center;
+	li {
+		&, a {
+			display: inline-block;
+		   *display: inline;
+			zoom: 1;
+		}
+	}
+	a {
+		color: #111;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: rgba(255,255,255,0);
+	}
+	a:hover, .current {
+		border-bottom-color: #111;
+	}
+}
+
+
+
+
+
+/*    P R I M A R Y
+---------------------------------------- */
+
+.nav--primary,
+.nav__brand {
+	line-height: 1;
+}
+
+.nav--primary {
+	font-size: $micro-size;
+	float: right;
+	@extend %text-small-spaced;
+	@extend %margin-bottom-none;
+}
+
+.nav__brand {
+	float: left;
+	@extend %margin-bottom-none;
+	@extend %text-small-spaced;
+	@extend %text-upper;
+}
+
+
+
+
+
+/*    S H A R E
+---------------------------------------- */
+
+.share-nav {
+	@extend %text-center;
+	a {
+		@extend %font-body-bold;
+	}
+	p {
+		max-width: none;
+		@extend %margin-bottom-none;
+	}
+}

@@ -1,0 +1,20 @@
+/**
+ *    ----------------------------------------
+ *    F  O  O  T  E  R
+ *    _footer.scss
+ * 	  global footer
+ *    ----------------------------------------
+ */
+
+
+
+
+
+.page-foot {
+	font-size: $micro-size;
+	@extend %text-center;
+	p {
+		@extend %max-width-none;
+		@extend %margin-bottom-none;
+	}
+}

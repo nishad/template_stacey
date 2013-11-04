@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>{{ page.name }}</title>
+<link>http://{{ page.base_url }}/</link>
+<ttl>10</ttl>
+<generator>Sam King App</generator>
+<lastBuildDate>{{ page.site_updated|date("D, d M Y H:i:s") }} GMT</lastBuildDate>
+<atom:link href="http://{{ page.base_url }}/feed.rss" rel="self" type="application/rss+xml" />
+<description>{{ page.feed_description }}</description>
+<language>en-us</language>
+<copyright>Sam King</copyright>
+{% include 'includes/feed/feed-loop.rss' %}
+</channel>
+</rss>

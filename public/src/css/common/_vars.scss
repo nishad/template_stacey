@@ -1,0 +1,109 @@
+/**
+ *    ----------------------------------------
+ *    V  A  R  S
+ *    _vars.scss
+ * 	  project variables & settings
+ *    ----------------------------------------
+ *
+ *    C O L O R S
+ *    S I Z E S
+ *    F O N T S
+ *    A N I M A T I O N S
+ *    D E F A U L T  V A R S
+ *    B R E A K P O I N T S
+ *
+ */
+
+
+
+
+
+/*    C O L O R S
+---------------------------------------- */
+
+$color-black: 			#000;
+$color-grey-superdark: 	#111;
+$color-grey-darkest: 	#333;
+$color-grey-dark: 		#666;
+$color-grey-medium: 	#999;
+$color-grey-light: 		#ccc;
+$color-grey-lightest: 	#eee;
+$color-grey-superlight: #f5f5f5;
+
+
+
+
+
+/*    S I Z E S
+---------------------------------------- */
+
+$giga-size: 		4.236em;	// .giga
+$mega-size: 		3.706em;	// .mega
+$kilo-size: 		2.618em;	// .kilo
+
+$alpha-size: 		2.291em; 	// .alpha
+$beta-size: 		1.618em; 	// .beta
+$gamma-size: 		1.416em; 	// .gamma
+$delta-size: 		1.3em; 		// .delta
+$epsilon-size: 		1.2em; 		// .epsilon
+$zeta-size: 		1.1em; 		// .zeta
+
+$milli-size: 		1em;		// .milli
+$micro-size: 		0.875em;	// .micro
+$super-micro-size: 	0.8em;		// .super-micro
+
+$spacing-unit-default: 	$beta-size;
+$spacing-unit-medium: 	$spacing-unit-default * 1.618;
+$spacing-unit-double: 	$spacing-unit-default * 2;
+$spacing-unit-half: 	$spacing-unit-default / 2;
+
+$default-max-width: 90em;
+
+
+
+
+
+/*    F O N T S
+---------------------------------------- */
+
+$brand-body-reg: 			"MetaSerifBook", Georgia, "Times New Roman", Times, serif;
+$brand-body-italic: 		"MetaSerifBookItalic", Georgia, "Times New Roman", Times, serif;
+$brand-body-bold: 			"MetaSerifMedium", Georgia, "Times New Roman", Times, serif;
+$brand-headline-reg: 		"Akzidenz", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$brand-headline-bold: 		"AkzidenzBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+
+
+/*    A N I M A T I O N S
+---------------------------------------- */
+
+$animation-cubic: 			0.5s cubic-bezier(0.2, 0.4, 0.1, 1);
+$animation-cubic-bounce: 	0.5s cubic-bezier(0.5, 0.4, 0.2, 1.6);
+$animation-easeinout: 		0.5s ease-in-out;
+
+
+
+
+
+/*    D E F A U L T  V A R S
+---------------------------------------- */
+
+$default-transition-duration: 			0.3s;
+$default-transition-timing-function: 	ease-in-out;
+
+
+
+
+
+/*    B R E A K P O I N T S
+---------------------------------------- */
+
+$palm-size: 30em;
+$lap-size: 48em;
+$portable-size: 64em;
+$portable-lg-size: 76em;
+$desk-size: 90em;
+$desk-lg-size: 106.25em;
+

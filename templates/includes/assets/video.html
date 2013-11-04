@@ -1,0 +1,11 @@
+{% if page.vid_type == 'vines' %}
+	{% set vine = true %}
+{% endif %}
+{% for video in page.video %}
+	{% if vine %}<div><figure>{% endif%}
+	<video class="video" {% if vine %}autobuffer loop muted autoplay width="690" height="690" {% endif %}controls preload="auto">
+		<source src="{{ video.url }}" type='video/mp4'>
+		<!--<source src="{{ video.url }}" type='video/webm'>-->
+	</video>
+	{% if vine %}</figure></div>{% endif%}
+{% endfor %}

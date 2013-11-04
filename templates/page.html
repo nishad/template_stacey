@@ -1,0 +1,55 @@
+{#
+ #    ----------------------------------------
+ #    P  A  G  E
+ #    page.html
+ # 	  single page layout
+ #    ----------------------------------------
+ #}
+
+
+{# extend default template #}
+{% extends "default.html" %}
+
+{# content #}
+{% block content %}
+
+<section class="container">
+
+	{# article #}
+	<article class="article--full">
+
+		{# page title #}
+		{% if page.no_title or page.hero_image %}
+			{# do nothing #}
+		{% else %}
+		{% include 'includes/modules/header-lead.html' %}
+		{% endif %}
+
+		{# featured image #}
+		{% if page.featured_image %}
+			{# image markup #}
+			{% include 'includes/assets/image-markup.html' with { 'image' : page.featured_image } %}
+		{% endif %}
+
+		{# article content #}
+		<div class="article-content">
+			{% if page.intro %}
+			<p class="lead">{{ page.intro }}</p>
+			{% endif %}
+			{{ page.content }}
+		</div>
+
+		{# article media #}
+		{% if page.no_images %}
+			{# do nothing #}
+		{% elseif page.images or page.video or page.html %}
+		<div class="article-media">
+			{% include 'includes/assets/media.html' %}
+		</div>
+		{% endif %}
+
+	</article>
+
+</section>
+
+{% endblock content %}

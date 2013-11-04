@@ -1,0 +1,19 @@
+/**
+ *    ----------------------------------------
+ *    S  P  R  I  T  E  S
+ *    _sprites.scss
+ * 	  sprite helper classes
+ *    ----------------------------------------
+ */
+
+
+
+
+
+%sprite {
+	// background-image: image-url('sprite.png');
+	// background-size: 15px 27px;
+	.svg & {
+		// background-image: image-url('sprite.svg');
+	}
+}

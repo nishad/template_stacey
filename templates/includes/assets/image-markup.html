@@ -1,0 +1,21 @@
+<figure class="media  media--image{% if exifclass %}  media--show-exif{% endif %}">
+
+	{# placeholder image with data src of real image #}
+	<img src="/public/src/img/placeholders/placeholder.php?loading=true&size={{ image.width }}x{{ image.height }}" data-src="{{ image.time_string }}" alt="{{ image.name }}" width="{{ image.width }}" height="{{ image.height }}" class="media__image  js--unveil{% if image.greyscale %}  media__image--greyscale{% endif %}">
+
+	{# lazy load fallback #}
+	<noscript>
+		<img src="{{ image.time_string }}" alt="{{ image.name }}" width="{{ image.width }}" height="{{ image.height }}" class="media__image">
+	</noscript>
+
+	{# exif data #}
+	{# {% include 'includes/assets/image-exif-data.html' %} #}
+
+	{# image caption #}
+	{% if image.caption %}
+		<figcaption>
+			{{ image.caption }}
+		</figcaption>
+	{% endif %}
+
+</figure>

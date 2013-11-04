@@ -1,0 +1,20 @@
+<header class="header--hero{% if page.hero_color == 'light' %}  header--hero--light{% else %}  header--hero--dark{% endif %}">
+
+	<div class="header--hero__wrap" style="background-image: url('{{ page.hero_image.time_string }}');">
+
+		<div class="header--hero__overlay"></div>
+
+		<div class="header--hero__inner  js--parallax">
+			<h1 class="header--hero__title">{{ page.title }}</h1>
+			{% if page.subtitle %}
+				<h2 class="header--hero__sub-title  meta">{{ page.subtitle }}</h2>
+			{% endif %}
+			{# page date #}
+			{% if page.date or page.length %}
+				<time class="meta  header--upper" datetime="{{ page.date | date("Y-m-d") }}">{% if page.length %}{{ page.length }}{% elseif page.body_class == 'single-project' %}{{ page.date | date("Y") }}{% else %}{{ page.date | date("d.m.Y") }}{% endif %}</time>
+			{% endif %}
+		</div>
+
+	</div>
+
+</header>

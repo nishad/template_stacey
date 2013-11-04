@@ -1,0 +1,5 @@
+{% for image in page.images %}
+<image:image>
+	<image:loc>http://{{ page.base_url }}{{ page.absolute_url }}/{{ image.file_name }}</image:loc>
+</image:image>
+{% endfor %}

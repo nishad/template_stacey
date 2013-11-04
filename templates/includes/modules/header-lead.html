@@ -1,0 +1,12 @@
+<header class="article-header  page-lead">
+	{# page title #}
+	<h2 class="header--medium">{{ page.title }}</h2>
+
+	{# page date #}
+	{% if page.date or page.length %}
+		<time class="meta  header--upper" datetime="{{ page.date | date("Y-m-d") }}">{% if page.length %}{{ page.length }}{% elseif page.body_class == 'single-project' %}{{ page.date | date("Y") }}{% else %}{{ page.date | date("d.m.Y") }}{% endif %}</time>
+	{% endif %}
+
+</header>
+
+{{ ce.hr_small() }}

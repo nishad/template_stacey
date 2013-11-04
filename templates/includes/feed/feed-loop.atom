@@ -1,0 +1,19 @@
+{# {% set page = get('/journal') %} #}
+{% for page in page.children|reverse %}
+	<entry>
+	  <id>http://{{ page.base_url }}/{{ page.permalink }}</id>
+	  <link rel="alternate" type="text/html" href="http://{{ page.base_url }}/{{ page.permalink }}" />
+	  <title>{{ page.title }}</title>
+	  <updated>{{ page.updated }}</updated>
+	  <author>
+	    <name>{{ page.name }}</name>
+	    <uri>http://{{ page.base_url }}</uri>
+	  </author>
+	  <content type="xhtml" xml:lang="en">
+	    <div xmlns="http://www.w3.org/1999/xhtml">
+	      {{ page.content }}
+	      {% include 'includes/feed/assets/feed-images.atom' %}
+	    </div>
+	  </content>
+	</entry>
+{% endfor %}

@@ -1,0 +1,49 @@
+/**
+ *    ----------------------------------------
+ *    P  A  G  I  N  A  T  I  O  N
+ *    _pagination.scss
+ * 	  basic pagination modules
+ *    ----------------------------------------
+ *
+ *    P A G I N A T I O N  L I N K S
+ *    R E A D  M O R E
+ *
+ */
+
+
+
+
+
+/*    P A G I N A T I O N  L I N K S
+---------------------------------------- */
+
+.pagination {
+	max-width: 16em;
+	@extend %center;
+	@extend %cf;
+	@extend %margin-bottom-medium;
+}
+
+	.pagination__link {
+		float: left;
+	}
+
+		.next-nav {
+			float: right;
+		}
+
+
+
+
+
+/*    R E A D  M O R E
+---------------------------------------- */
+
+.read-more {
+	@extend %center;
+}
+
+	.read-more--button {
+		@extend %text-center;
+		@extend %max-width-none;
+	}

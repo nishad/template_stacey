@@ -1,0 +1,4 @@
+{% for page in sortbydate(page.children, 'updated') %}
+  {% include 'includes/feed/feed-entry.atom' %}
+  {% include 'includes/feed/feed-children.atom' %}
+{% endfor %}

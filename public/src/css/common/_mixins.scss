@@ -1,0 +1,125 @@
+/**
+ *    ----------------------------------------
+ *    M  I  X  I  N  S
+ *    _mixins.scss
+ *    global mixins
+ *    ----------------------------------------
+ *
+ *    F O N T  F A C E
+ *    M E D I A  Q U E R I E S
+ *    3D  T R A N S F O R M S
+ *    A N I M A T I O N  M I X I N S
+ *    A N I M A T I O N S
+ *
+ */
+
+
+
+
+
+/*    F O N T  F A C E
+---------------------------------------- */
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+    font-family: $font-family;
+    src: font-url('#{$file-path}.eot');
+    src: font-url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+       font-url('#{$file-path}.woff') format('woff'),
+       font-url('#{$file-path}.ttf') format('truetype'),
+       font-url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+
+
+
+
+/*    M E D I A  Q U E R I E S
+---------------------------------------- */
+
+@mixin mq($point) {
+  @if $point == max-palm {
+    @media only screen and (max-width: $palm-size) { @content; }
+  }
+  @elseif $point == min-palm {
+    @media only screen and (min-width: $palm-size) { @content; }
+  }
+  @if $point == max-lap {
+    @media only screen and (max-width: $lap-size) { @content; }
+  }
+  @else if $point == min-lap {
+    @media only screen and (min-width: $lap-size) { @content; }
+  }
+  @else if $point == min-portable {
+    @media only screen and (min-width: $portable-size) { @content; }
+  }
+  @else if $point == min-portable-lg {
+    @media only screen and (min-width: $portable-lg-size) { @content; }
+  }
+  @else if $point == min-desk {
+    @media only screen and (min-width: $desk-size) { @content; }
+  }
+  @else if $point == min-desk-lg {
+    @media only screen and (min-width: $desk-lg-size) { @content; }
+  }
+}
+
+
+
+
+
+/*    3D  T R A N S F O R M S
+---------------------------------------- */
+
+@mixin sk_translate($x, $y, $z) {
+  @include translate($x, $y);
+  .csstransforms3d & {
+    @include translate3d($x, $y, $z);
+  }
+}
+
+
+
+
+
+/*    A N I M A T I O N  M I X I N S
+---------------------------------------- */
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// usage: @include animation(name, 1s, ease-in);
+@mixin animation($name, $duration:0.5s, $easing:ease-in-out) {
+  -webkit-animation: $name $duration $easing;
+  -moz-animation: $name $duration $easing;
+  -ms-animation: $name $duration $easing;
+  -o-animation: $name $duration $easing;
+  animation: $name $duration $easing;
+}
+
+
+
+
+
+/*    A N I M A T I O N S
+---------------------------------------- */
+
+@include keyframes(fadeIn) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

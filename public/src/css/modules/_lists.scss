@@ -1,0 +1,80 @@
+/**
+ *    ----------------------------------------
+ *    L  I  S  T  S
+ *    _lists.scss
+ * 	  styles for all lists
+ *    ----------------------------------------
+ *
+ *    C O M M O N  L I S T S
+ *    D E F I N I T I O N  L I S T S
+ *
+ */
+
+
+
+
+
+/*    C O M M O N  L I S T S
+---------------------------------------- */
+
+ul, ol {
+	line-height: $alpha-size;
+	@extend %margin-bottom-default;
+}
+
+ul {
+	margin-left: $epsilon-size;
+	list-style-type: square;
+}
+
+.list--no-bullet {
+	list-style: none;
+	margin-left: 0;
+}
+
+.list--dash {
+	li:before {
+		content: "– "; // &mdash;
+	}
+}
+
+ol {
+	margin-left: 0;
+	padding-left: $epsilon-size;
+	@include mq(min-lap) {
+		margin-left: $epsilon-size;
+	}
+}
+
+	li ul,
+	li ol {
+		@extend %margin-bottom-none;
+	}
+
+	li ul {
+		margin-left: $epsilon-size;
+		list-style-type: circle;
+	}
+
+
+
+
+
+/*    D E F I N I T I O N  L I S T S
+---------------------------------------- */
+
+dl {
+	@extend %margin-bottom-default;
+}
+
+	dt {
+		@extend %font-body-bold;
+	}
+
+	dd {
+		margin-left: $epsilon-size;
+	}
+
+	dt + dd {
+		@extend %margin-bottom-default;
+	}

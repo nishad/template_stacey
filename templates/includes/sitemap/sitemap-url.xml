@@ -1,0 +1,9 @@
+<url>
+    <loc>http://{{ page.base_url }}/{{ page.permalink }}</loc>
+    {% if page.images %}
+    {% include 'includes/sitemap/sitemap-image.xml' with { 'page': child } %}
+    {% endif %}
+    <lastmod>{{ page.updated }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>

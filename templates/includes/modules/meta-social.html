@@ -1,0 +1,59 @@
+{#    S E T  V A L U E S
+---------------------------------------- #}
+{# set image #}
+{% if page.hero_image %}
+	{% set og_image %}{{ page.hero_image.absolute_url }}{% endset %}
+{% elseif page.featured_image %}
+	{% set og_image %}{{ page.featured_image.absolute_url }}{% endset %}
+{% elseif page.images and page.reverse %}
+	{% set og_image %}{% for image in slice(page.images|reverse, 0, 1) %}{{ image.absolute_url }}{% endfor %}{% endset %}
+{% elseif page.images %}
+	{% set og_image %}{% for image in slice(page.images, 0, 1) %}{{ image.absolute_url }}{% endfor %}{% endset %}
+{% elseif page.thumb %}
+	{% set og_image = page.thumb.absolute_url %}
+{% else %}
+	{% set og_image %}http://{{ page.base_url }}/public/img/samking-logo.png{% endset %}
+{% endif %}
+
+{# set content type #}
+{% if page.body_class == 'single-post' or page.body_class == 'single-project' %}
+	{% set og_type = 'article' %}
+{% else %}
+	{% set og_type = 'website' %}
+{% endif %}
+
+{# set the url #}
+{% if page.body_class == 'home' %}
+	{% set og_url %}http://{{ page.base_url }}{% endset %}
+{% else %}
+	{% set og_url %}http://{{ page.base_url }}/{{ page.permalink }}{% endset %}
+{% endif %}
+
+{# set the type of twitter card #}
+{% if page.images or page.hero_image or page.featured_image %}
+	{% set twitter_card = 'photo' %}
+{% else %}
+	{% set twitter_card = 'summary' %}
+{% endif %}
+
+{# set the twitter image #}
+{% if page.hero_image %}
+	{% set twitter_image %}{{ page.hero_image.absolute_url }}{% endset %}
+{% elseif page.featured_image %}
+	{% set twitter_image %}{{ page.featured_image.absolute_url }}{% endset %}
+{% elseif page.images and page.reverse %}
+	{% set twitter_image %}{% for image in slice(page.images|reverse, 0, 1) %}{{ image.absolute_url }}{% endfor %}{% endset %}
+{% elseif page.images %}
+	{% set twitter_image %}{% for image in slice(page.images, 0, 1) %}{{ image.absolute_url }}{% endfor %}{% endset %}
+{% endif %}
+
+
+{#    M A R K U P
+---------------------------------------- #}
+<meta property="og:image" content="{{ og_image }}" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:description" content="{{ page.page_description }}" />
+<meta property="og:type" content="{{ og_type }}" />
+<meta property="og:url" content="{{ og_url }}" />
+<meta name="twitter:card" content="{{ twitter_card }}"/>
+<meta name="twitter:image" content="{{ twitter_image }}"/>

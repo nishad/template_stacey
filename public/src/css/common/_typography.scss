@@ -1,0 +1,209 @@
+/**
+ *    ----------------------------------------
+ *    T  Y  P  O  G  R  A  P  H  Y
+ *    _typography.scss
+ * 	  type only styles
+ *    ----------------------------------------
+ *
+ *    B R A N D  F O N T S
+ *    H E A D I N G S
+ *    T E X T  B L O C K S
+ *    M O N O S P A C E
+ *    C U S T O M  C L A S S E S
+ *    H E L P E R S
+ *    S I Z E S
+ *
+ */
+
+
+
+
+
+/*    B R A N D  F O N T S
+---------------------------------------- */
+
+@include font-face(AkzidenzBold, '/public/src/fonts/akzidenzgroteskbe_bold-webfont', bold);
+@include font-face(Akzidenz, '/public/src/fonts/akzidenzgroteskbe-regular-webfont');
+@include font-face(MetaSerifBook, '/public/src/fonts/metaserifpro-book');
+@include font-face(MetaSerifBookItalic, '/public/src/fonts/metaserifpro-bookita', normal, italic);
+@include font-face(MetaSerifMedium, '/public/src/fonts/metaserifpro-medi', bold);
+
+
+// brand helper classes
+%font-headline-reg {
+	font-family: $brand-headline-reg;
+}
+
+%font-headline-bold {
+	font-family: $brand-headline-bold;
+}
+
+%font-body-reg {
+	font-family: $brand-body-reg
+}
+
+%font-body-bold {
+	font-family: $brand-body-bold;
+}
+
+%font-body-italic {
+	font-family: $brand-body-italic;
+}
+
+
+
+
+
+/*    H E A D I N G S
+---------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	@extend %font-headline-bold;
+	font-weight: bold;
+	line-height: $epsilon-size;
+	margin-bottom: $micro-size;
+	&.light {
+		@extend %font-headline-reg;
+		font-weight: normal;
+	}
+	a {
+		border-bottom-color: rgba(255,255,255,0);
+	}
+}
+
+h1, h2 {
+	margin-bottom: $micro-size/3;
+}
+
+
+
+
+
+/*    T E X T  B L O C K S
+---------------------------------------- */
+
+p {
+	max-width: 36em;
+	@extend %margin-bottom-default;
+}
+
+blockquote {
+	font-size: $epsilon-size;
+	padding-left: $beta-size;
+	padding-right: $beta-size;
+	color: #333;
+	border-left: 3px solid #ccc;
+	@extend %margin-bottom-default;
+}
+
+.quote-citation, .quote-citation a {
+	color: #999;
+}
+
+.quote-citation {
+	font-size: $micro-size;
+}
+
+
+
+
+
+/*    M O N O S P A C E
+---------------------------------------- */
+
+pre, code, kbd, samp {
+    font-family: Menlo, Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+code, kbd, samp {
+	color: #333;
+    font-size: $micro-size;
+    font-style: normal;
+    font-weight: normal;
+    pre & {
+        color: #fff;
+    }
+}
+
+code { color: #4f9fd1; }
+
+.code-comment { opacity: .5; }
+
+
+
+
+
+
+/*    C U S T O M  C L A S S E S
+---------------------------------------- */
+
+.meta {
+	display: block;
+	@extend %font-body-reg;
+	font-size: $micro-size;
+	color: #999;
+	@extend %text-big-spaced;
+	@extend %max-width-none;
+}
+
+.meta--inline { display: inline; }
+
+
+
+
+
+/*    H E L P E R S
+---------------------------------------- */
+
+.header {
+	@extend %font-headline-bold;
+}
+
+.header--center {
+	@extend %text-center;
+}
+
+.header--upper {
+	@extend %text-upper;
+}
+
+.header--large {
+	@extend %text-upper;
+	@extend %text-big-spaced;
+	@extend %text-center;
+}
+
+.header--medium {
+	@extend %text-upper;
+	@extend %text-small-spaced;
+	@extend %text-center;
+}
+
+.header--meta {
+	@extend %font-body-reg;
+	font-weight: normal;
+}
+
+.lead {
+	font-size: $delta-size;
+	line-height: $spacing-unit-default;
+}
+
+
+
+
+
+/*    S I Z E S
+---------------------------------------- */
+
+.giga 				{ font-size: $giga-size; }
+.mega 				{ font-size: $mega-size; }
+.kilo 				{ font-size: $kilo-size; }
+h1, .alpha 			{ font-size: $alpha-size; }
+h2, .beta 			{ font-size: $beta-size; }
+h3, .gamma 			{ font-size: $gamma-size; }
+h4, .delta 			{ font-size: $delta-size; }
+h5, .epsilon 	 	{ font-size: $epsilon-size; }
+h6, .milli 			{ font-size: $milli-size; }
+.micro 				{ font-size: $micro-size; }
+.super-micro 		{ font-size: $super-micro-size; }

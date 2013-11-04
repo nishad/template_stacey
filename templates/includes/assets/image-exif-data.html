@@ -1,0 +1,16 @@
+{% if exifclass %}
+
+	{% set exifdata %}
+		{{ image.focal }} &ndash; {{ image.shutter }} &ndash; {{ image.aperture }} &ndash; {{ image.iso }}
+	{% endset %}
+
+	{% if image.camera %}
+		<div class="media__exif-data">
+			<h6 class="exif-data__camera">{{ image.camera }}</h6>
+			<p class="exif-data__info">{{ exifdata }}</p>
+		</div>
+	{% else %}
+		{# show nothing #}
+	{% endif %}
+
+{% endif %}

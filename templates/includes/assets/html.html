@@ -1,0 +1,9 @@
+{% for html in page.html %}
+	{% if html.type == "embed" %}
+		<figure class="media  js--fitvid">
+			{{ html.content }}
+		</figure>
+	{% else %}
+		{{ html.content }}
+	{% endif %}
+{% endfor %}

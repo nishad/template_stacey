@@ -1,0 +1,19 @@
+name: __site_title__
+tagline: __site_tagline__
+
+title: __site_title__ - __site_tagline__
+page_description: __site_description__.
+default_keywords: default, keywords
+
+email: |
+  <__site_email__>
+telephone:
+twitter: |
+  [@__site_twitter__](http://twitter.com/__site_twitter__ "__site_twitter__ on Twitter")
+
+analytics: UA-00000000-0
+
+assets_css: ['public/dist/css/__site_slug__.css']
+assets_js: ['public/dist/js/__site_slug__.js']
+
+env: dev

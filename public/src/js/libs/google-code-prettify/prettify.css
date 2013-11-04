@@ -1,0 +1,25 @@
+.str, .lit, .atv {
+  color:#2aa198
+}
+.kwd{
+  color:#859900
+}
+.com, .atn {
+  color:#586e75
+}
+.typ {
+  color:#b58900
+}
+.dec, .var, .tag, .pln, .pun,.opn,.clo {
+  color:#268bd2
+}
+.fun {
+  color:#dc322f
+}
+
+.kwd, .typ, {
+	font-weight: bold;
+}
+.com {
+	font-style: italic;
+}

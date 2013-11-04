@@ -1,0 +1,164 @@
+/**
+ *    ----------------------------------------
+ *    R  E  S  E  T
+ *    _reset.scss
+ *    basic browser reset
+ *    ----------------------------------------
+ *
+ *    E L E M E N T S
+ *    T Y P O G R A P H Y
+ *    M E D I A
+ *    F O R M S
+ *    T A B L E S
+ *
+ */
+
+
+
+
+
+/*    E L E M E N T S
+---------------------------------------- */
+
+* {
+    @include box-sizing(border-box);
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+
+
+
+/*    T Y P O G R A P H Y
+---------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+strong, b {
+    @extend %font-body-bold;
+    font-weight: bold;
+    font-style: inherit;
+}
+
+mark {
+    background: #fff9dd;
+}
+
+em, i, cite, q, address, dfn, var {
+    @extend %font-body-italic;
+    font-style: italic;
+    font-weight: inherit;
+}
+
+abbr[title], dfn[title] {
+    cursor: help;
+    border-bottom: 1px dotted;
+}
+
+ins {
+    background: #ccc;
+    border-bottom: 1px solid #666;
+}
+
+a, u, ins {
+    text-decoration: none;
+}
+
+cite {
+    font-style: normal;
+}
+
+del, s {
+    text-decoration: line-through;
+}
+
+pre, code, samp, kbd {
+    font-family: monospace;
+}
+
+kbd {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: $spacing-unit-half/5 $spacing-unit-half/1.5;
+}
+
+small {
+    font-size: 0.75em;
+}
+
+sub, sup {
+    font-size: smaller;
+    line-height: 90%;
+    vertical-align: sub;
+}
+
+sup {
+    vertical-align: super;
+}
+
+
+
+
+
+/*    M E D I A
+---------------------------------------- */
+
+figcaption {
+    line-height: 1.8em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border:none;
+    -ms-interpolation-mode: bicubic;
+}
+
+
+
+
+
+/*    F O R M S
+---------------------------------------- */
+
+input, select, textarea {
+    font: inherit;
+}
+
+
+
+
+
+/*    T A B L E S
+---------------------------------------- */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

@@ -1,0 +1,6 @@
+{% if page.featured_image %}
+  <img src="{{ page.featured_image.absolute_url }}" alt="Featured Image" />
+{% endif %}
+{% for image in page.images %}
+  <img src="{{ image.absolute_url }}" alt="{{ image.name }}" />
+{% endfor %}

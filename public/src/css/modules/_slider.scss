@@ -1,0 +1,41 @@
+/**
+ *    ----------------------------------------
+ *    S  L  I  D  E  R
+ *    _slider.scss
+ * 	  style for an animated slider
+ *    anything with a class of `slider` automatically becomes a slider
+ *    ----------------------------------------
+ */
+
+
+
+
+
+// basic slider
+.slider {
+	position: relative;
+	overflow: hidden;
+	@extend %margin-bottom-double;
+}
+
+	// each slide
+	.slide {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		@include transition(opacity 2s ease-in-out);
+		// fade in active slide
+		&.active {
+			opacity: 1;
+		}
+	}
+
+		// each slide image
+		.slide--image {
+			line-height: 0;
+			width: 100%;
+			position: relative;
+		}

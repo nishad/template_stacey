@@ -1,0 +1,119 @@
+/**
+ *    ----------------------------------------
+ *    G  E  N  E  R  A  L
+ *    _general.scss
+ * 	  general page classes: html, body etc.
+ *    ----------------------------------------
+ *
+ *    H T M L  B O D Y
+ *    L I N K S
+ *    S E P A R A T O R S
+ *    C O D E  B L O C K S
+ *
+ */
+
+
+
+
+
+/*    H T M L  B O D Y
+---------------------------------------- */
+
+html, body {
+	min-height: 100%;
+	height: 100%;
+}
+
+body {
+	@extend %font-body-reg;
+	font-size: 100%;
+	line-height: 1.7;
+	vertical-align: baseline;
+	color: #333;
+	-webkit-text-size-adjust: none;
+	background: #eee;
+}
+
+
+
+
+
+/*    L I N K S
+---------------------------------------- */
+
+a {
+	color: #111;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #ccc;
+	@include transition;
+	&:hover {
+		border-bottom-width: 2px;
+		border-bottom-color: #111;
+	}
+	&.no-border {
+		border: none;
+	}
+}
+
+
+
+
+
+/*    S E P A R A T O R S
+---------------------------------------- */
+
+hr {
+    height: 1px;
+    background: #ccc;
+    border: none;
+    margin: {
+    	top: $spacing-unit-double;
+    	bottom: $spacing-unit-double;
+    }
+}
+
+.hr--small {
+	max-width: 16em;
+	@extend %center;
+}
+
+.hr--stars {
+    background: none;
+    border: none;
+    padding: {
+    	top: $spacing-unit-double;
+    	bottom: $spacing-unit-double;
+    }
+    &:after {
+        content: "* * *";
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        font-size: $epsilon-size;
+        letter-spacing: $milli-size;
+    }
+}
+
+
+
+
+
+/*    C O D E  B L O C K S
+---------------------------------------- */
+
+pre {
+    white-space: pre;
+    word-wrap: normal;
+    background-color: #002b36;
+    overflow: auto;
+    color: #fff;
+    line-height: 1.3;
+    padding: $spacing-unit-half;
+	box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+	border-radius: 3px;
+	@extend %margin-bottom-default;
+	&.inline-comment:before {
+		display: inline-block;
+	}
+}

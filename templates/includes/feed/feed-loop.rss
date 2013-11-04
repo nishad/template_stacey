@@ -1,0 +1,13 @@
+{# {% set page = get('/journal') %} #}
+{% for page in page.children|reverse %}
+<item>
+<title>{{ page.title }}</title>
+<pubDate>{{ page.date|date("D, d M Y ") }}{{ page.updated|date("H:i:s") }} +0200</pubDate>
+<description>{{ page.page_description }}</description>
+<content:encoded>
+<![CDATA[{% if page.intro %}{{ page.intro }}{% endif %}{{ page.content }}{% include 'includes/feed/assets/feed-images.rss' %}]]>
+</content:encoded>
+<link>http://{{ page.base_url }}/{{ page.permalink }}</link>
+<guid isPermaLink="true">http://{{ page.base_url }}/{{ page.permalink }}</guid>
+</item>
+{% endfor %}
